@@ -1,0 +1,156 @@
+{
+    "openapi" : "3.0.3",
+    "info": {
+        "title": "Employee Resful API",
+        "version": "1.0",
+        "description": "Open API for todolist api",
+        "termsOfService": "https://example.com",
+        "contact": {
+            "name": "yuditia",
+            "email": "yuditia@gmail.com",
+            "url": "https://example.com"
+        },
+    "license": {
+        "name": "APACHE 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    }
+
+    },
+    "servers":[{
+        "url": "http://127.0.0.1:8000/api/v1",
+        "description": "To do List Restful API"
+
+    }],
+    "externalDocs": {
+        "description": "programmer jaman now",
+        "url": "https://youtube.programmerjamannow.com"
+    },
+    "paths": {
+        "/employee":{
+            "get":{
+                "summary": "Get all data employee",
+                "description": "Only willl return active employee",
+                "parameters": [{
+                    "name": "employeeid",
+                    "in": "query",
+                    "required": true,
+                    "description": "employeeid for update data employee",
+                    "schema":{
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+
+                    }
+                }],
+                "responses": {}
+            },
+            "post":{
+                "summary": "Create new employee",
+                "description": "Create new employee to database",
+                "parameters": [{
+                    "name": "employeeid",
+                    "in": "query",
+                    "required": false,
+                    "description": "employeeid for update data employee",
+                    "schema":{
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    }
+                }],
+                "requestBody":{
+                    "required": true,
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "name":{
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "required": ["true"]
+                                    },
+                                    "email":{
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "required": ["true"]
+                                    },
+                                    "address":{
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "required": ["true"]
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {}
+            }
+        },
+        "/employee/{employeeid}":{
+            "put":{
+                "summary": "Update existing data employee",
+                "description": "Update Employee data in Database",
+                "parameters": [{
+                    "name": "employeeid",
+                    "in": "path",
+                    "required": true,
+                    "description": "employeeid for update data employee",
+                    "schema":{
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    }
+                }],
+                "requestBody":{
+                    "required": true,
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "name":{
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "required": ["true"]
+                                    },
+                                    "email":{
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "required": ["true"]
+                                    },
+                                    "address":{
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "required": ["true"]
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                },
+
+                "responses": {}
+            },
+            "delete":{
+                "summary": "Delete existing data employee",
+                "description": "Delete Employee data in database",
+                "parameters": [{
+                    "name": "employeeid",
+                    "in": "path",
+                    "required": true,
+                    "description": "employeeid for delete data employee",
+                    "schema":{
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    }
+                }],
+                "responses": {}
+            }
+        }
+    }
+}
